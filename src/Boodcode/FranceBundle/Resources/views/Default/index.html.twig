@@ -1,0 +1,28 @@
+{# src/Boodcode/FranceBundle/Resources/views/Default/index.html.twig #}
+
+{% extends "BoodcodeFranceBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Accueil {% endblock %}
+{% block body %}    
+	<div class="container-fluid">
+		<div class="row">
+			<div class="grid">
+				{% for work in works %}
+					{% if (loop.index == 1 or loop.index == 4 or loop.index == 8 or loop.index == 13 ) %}
+					<div class="bloc">
+					{% endif %}
+						<div id="{{work.slug}}" class="work w{{work.homeWidth}} h{{ work.homeHeight }}">
+							<div class="over">
+								<div class="title">{{ work.titre }}<br>
+								<span class="subtitle">{{ work.description }}</span></div>
+							</div>
+							<!--img src="{{ asset('images/works/' ~ work.slug ~ '-home.jpg')}}" alt="{{work.slug}}" width="100%"-->
+						</div>
+					{% if (loop.index == 3 or loop.index == 7 or loop.index == 12 or loop.index == 15) %}
+					</div>
+					{% endif %}	
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

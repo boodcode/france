@@ -1,0 +1,53 @@
+{% extends "BoodcodeContactBundle::base.html.twig" %}
+  {% block header %}
+      {{ parent() }}
+  {% endblock %}
+  {% block main %}
+    <h2 class="pageTitle2">{% trans %}CONTACT{% endtrans %}</h2>
+
+    <p>{% trans %}Merci de compléter les informations ci-dessous<br>afin que nous puissions reprendre contact avec vous au plus vite.{% endtrans %}</p>
+      {% form_theme form 'BoodcodeContactBundle:Form:fields.html.twig' %}
+      {{ form_start(form, {'attr':{novalidate: 'novalidate', 'class': 'form'}}) }}
+          <div class="div_1_2">
+            {{form_widget(form.message, {'attr': {'placeholder': 'Votre Message'|trans(), 'class': ''}} ) }}
+            <div class="clear"></div>
+            {{form_errors(form.message)}}
+          </div>
+          <div class="div_1_2">
+            {{form_widget(form.prenom, {'attr': {'placeholder': 'Prénom'|trans(), 'class': 'w_230'}} ) }} {{form_errors(form.prenom)}}
+            <div class="clear"></div>
+             {{form_widget(form.nom, {'attr': {'placeholder': 'Nom'|trans(), 'class': 'w_230'}} ) }} {{form_errors(form.nom)}}
+            <div class="clear"></div>
+            {{form_widget(form.tel, {'attr': {'placeholder': 'Téléphone'|trans(), 'class': 'w_160'}} ) }}
+            <div class="clear"></div>
+             {{form_widget(form.mail, {'attr': {'placeholder': 'E-mail'|trans(), 'class': 'w_300'}} ) }} {{form_errors(form.mail)}}
+            <div class="clear"></div>
+            {{form_widget(form.save, { 'label': 'ENVOYER'|trans() }) }}
+            <div class="clear"></div>
+            {% if(form.vars.valid == false) %} 
+              <div class="error_mentions">{% trans %}Les champs encadrés sont incorrects ou incomplets.{% endtrans %} </div>
+            {% endif %}
+            </div>
+          {{ form_rest(form) }}
+          
+        {{form_end(form)}}
+        <div class="clear"></div>
+    <div class="clear"></div>
+  {% endblock %}
+  {% block javascripts %}
+    {{ parent() }}
+    <script>
+    //************************************
+
+    $(function(){
+      $('input[readonly="readonly"]').each(function(){
+        $(this).attr('value', $(this).next('ul').find('li.selected').text());
+      })
+      $('input[readonly="readonly"]').on('click', function(){
+        $(this).next().addClass('open');
+      })
+
+    })
+
+    </script>
+  {% endblock javascripts %}

@@ -1,0 +1,47 @@
+{% extends "BoodcodeFranceBundle::layout.html.twig" %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/admin.css') }}" type="text/css" />
+{% endblock %}
+{% block javascripts %}{{ parent() }}
+	<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+	<script src="{{asset('js/jquery-ui.min.js')}}"></script>
+	<script src="{{asset('js/admin.js')}}"></script>
+	<script>
+	$(function(){
+		$("#boodcode_francebundle_work_edit_image ul").one('mouseenter', 'li', function(){
+			$(this).mousemove(function(){
+				var w = $(this).width();
+				$('.highlight').css({'width': w})
+			})
+			
+		})
+
+		$("#boodcode_francebundle_work_edit_image ul").sortable({ 	
+			placeholder: 'highlight',
+			update: function() {
+				var order = $(this).sortable("serialize");
+				$.ajax({
+					type : 'post',
+					data:  order,
+					url : '{{ path('boodcode_france_orderingimage') }}',
+					beforeSend : function(){
+						console.log('ca charge');
+					},
+					success: function(data){
+						console.log(data.data);
+					}
+				});
+			}
+		});
+	})
+	</script>
+{% endblock %}
+{% block body %}
+
+  <h2>Editer une entrée</h2>
+
+  {{ include("BoodcodeFranceBundle:Default:form.html.twig") }}
+
+
+{% endblock %}

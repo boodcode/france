@@ -1,0 +1,71 @@
+{# src/Boodcode/FranceBundle/Resources/views/Default/index.html.twig #}
+
+{% extends "BoodcodeFranceBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Admin {% endblock %}
+{% block javascripts %}
+	{{ parent() }}
+	<script src="{{asset('js/admin.js')}}"></script>
+{% endblock %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/admin.css') }}" type="text/css" />
+	<link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" type="text/css" />
+{% endblock %}
+{% block body %}
+	<div class="container-fluid">
+		<div class="row" id="main">
+			<h2>Administration</h2>
+			<h3>Works</h3>
+			<div id="admin_works">
+				<ul class="outils">
+					<li id="add_work" class="show">
+						<a href="{{ path('boodcode_france_add') }}">
+							<span class="fa fa-plus-square fa-stack-1x"></span> Ajouter une nouvelle entrée
+						</a>
+					</li>
+					<li id="delete_work" class="hidden">
+						<a href="#">
+							<span class="fa fa-remove fa-stack-1x"></span>Supprimer les éléments selectionnés
+						</a>
+					</li>
+				</ul>
+
+				<table width="100%">
+					<thead>
+						<th></th>
+						<th></th>
+						{% if is_granted('ROLE_ADMIN') %}
+						<th></th>
+						<th></th>
+						<th>online</th>
+						{% endif %}
+						<th>titre</th>
+						<th>description</th>
+						<th>W</th>
+						<th>H</th>
+						<th>slug</th>
+						<th>id</th>
+					</thead>
+				{% for work in works %}
+					<tr data-slug="{{work.slug}}">
+						<td><input type="checkbox" id="{{work.id}}"></td>
+						<td><a href="{{ path('boodcode_france_work', {'slug': work.slug}) }}" target="_blank"><span class="fa fa-eye fa-stack-1x"></span></a></td>
+						{% if is_granted('ROLE_ADMIN') %}
+							<td><a href="{{ path('boodcode_france_editer', {'id':work.id}) }}"><span class="fa fa-pencil fa-stack-1x"></span></a></td>
+							<td><a href="{{ path('boodcode_france_delete', {'id': work.id}) }}"><span class="fa fa-trash fa-stack-1x"></span></a></td>
+							<td>{% if(work.publication) %} <span class="fa fa-toggle-on fa-stack-1x"></span> {% else %} <span class="fa fa-toggle-off fa-stack-1x"></span> {% endif %}</td>
+						{% endif %}
+						<td>{{work.titre}}</td>
+						<td>{{work.description}}</td>
+						<td>{{work.homeWidth}}</td>
+						<td>{{work.homeHeight}}</td>
+						<td>{{work.slug}}</td>
+						<td>{{work.id}}</td>
+					</tr>
+				{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}

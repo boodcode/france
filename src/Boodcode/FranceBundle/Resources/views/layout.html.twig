@@ -1,0 +1,70 @@
+{# src/Boodcode/FranceBundle/Resources/views/layout.html.twig #}
+
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<meta name="description" content="Graphiste Publicitaire, Identité visuelle, Charte graphique, Image de marque, cahier de style. Edition / Print, Magazine, brochure, Evénementiel">
+	<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+	<link rel="shortcut icon" type="image/png" href="{{site_root}}favicon.png"/>
+    <title>{% block title %}Françoise Aberton | Graphiste DA{% endblock %}</title>
+    {% block stylesheets %}
+      	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,100italic' rel='stylesheet' type='text/css'>
+      	<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" />
+    {% endblock %}
+  	{% block javascripts %}
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="{{asset('js/modernizr.custom.js')}}"></script>
+		<script src="{{asset('js/masonry.pkgd.min.js')}}"></script>
+		<script src="{{asset('js/jquery.easing.1.3.js')}}"></script>
+		<script src="{{asset('js/app.js')}}"></script>
+	{% endblock %}
+
+  </head>
+  <body class="{{body_class|default('page')}}">
+  	{% block header %}
+	<div class="container-fluid">
+		<div class="row" id="header">
+  			<div class="logo"><a href="{{site_root}}"><img src="{{ asset('images/logo.png') }}" alt="Françoise Aberton"></a></div>
+  			<div class="title">
+  				<h1>Françoise Aberton</h1>
+  				<h2>Graphiste D.A.</h2>
+  			</div>		
+  			<div class="menu">
+  				<a href="{{site_root}}">Portfolio</a> | 
+  				<a href="{{ path('boodcode_france_about') }}">A propos</a> | 
+  				<a href="{{ path('boodcode_france_clients') }}">Clients</a> | 
+  				<a href="{{ path('boodcode_contact_fr') }}">Contact</a>
+  			</div>
+		</div>
+		
+	{% endblock %}
+	<div id="main">
+	    {% block body %}
+	    {% endblock %}
+    </div>
+	<div class="row" id="footer">
+		<ul class="demi left">
+			<li><a href="{{site_root}}">Françoise Aberton</a></li>
+			<li><a href="{{ path('boodcode_france_clients') }}">Clients</a></li>
+			<li><a href="{{ path('boodcode_france_about') }}">A propos</a></li>
+			<li><a href="{{ path('boodcode_contact_fr') }}">Contact</a></li>
+		</ul>
+		<ul class="demi right">
+			<li><a href="http://www.viadeo.com/profile/002s46wj388myij?nav=0&navContext=002fh8icvccjoy1&consultationType=27" target="_blank"><img src="{{asset('images/footer_viadeo.png')}}" alt="viadeo"></a></li>
+		</ul>
+	</div>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-10314669-30', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+{% extends "BoodcodeFranceBundle::layout.html.twig" %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/admin.css') }}" type="text/css" />
+{% endblock %}
+{% block title %}
+  Supprimer une entrée - {{ parent() }}
+{% endblock %}
+{% block body %}
+
+  <h2>Effecer une entrée</h2>
+
+
+  <p class="alert">
+    Attention : cette entrée sera définitivement supprimée après validation du formulaire.
+  </p>
+   <p>
+    Etes-vous certain de vouloir supprimer l'annonce "{{ work.titre }}" ?
+  </p>
+
+
+  {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+  <form action="{{ path('boodcode_france_delete', {'id': work.id}) }}" method="post">
+    <a href="{{ path('boodcode_france_work', {'slug': work.slug}) }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à l'entrée
+    </a>
+    {# Ici j'ai écrit le bouton de soumission à la main #}
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {# Ceci va générer le champ CSRF #}
+    {{ form_rest(form) }}
+  </form>
+
+
+{% endblock %}
+
+
+
+

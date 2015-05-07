@@ -1,0 +1,24 @@
+{
+    "name": "mlpz/mailchimp-bundle",
+    "type": "symfony-bundle",
+    "description": "mailchimp bundle",
+    "keywords": ["mailchimp","api", "newsletter"],
+    "homepage": "http://www.mlpz.mp",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Miguel Perez",
+            "email": "miguel@mlpz.mp"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "2.*",
+        "kriswallsmith/buzz":">=0.7",
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-0": { "MZ\\MailChimpBundle": "" }
+    },
+    "target-dir": "MZ/MailChimpBundle"
+}

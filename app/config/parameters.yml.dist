@@ -1,0 +1,23 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    debug_toolbar:          true
+    debug_redirects:        false
+    use_assetic_controller: true
+
+    app_webmaster: matt@boodcode.com
+    site_root: 'http://localhost:8888/FRANCE-2014/sf/web/app_dev.php'
+    assets_base_url: 'http://localhost:8888/FRANCE-2014/sf/web/bundles/boodcodefrance/'

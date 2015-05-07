@@ -1,0 +1,47 @@
+{# src/Boodcode/FranceBundle/Resources/views/Default/work.html.twig #}
+
+{% extends "BoodcodeFranceBundle::layout.html.twig" %}
+
+{% block title %} {{work.titre}} | {{ parent() }}{% endblock %}
+{% block stylesheets %} {{parent()}}
+	<link rel="stylesheet" href="{{ asset('css/tiltSlider.css') }}" type="text/css" />
+{% endblock %}
+{% block body %}    
+	<div class="container-fluid">
+		<div class="slideshow" id="slideshow">
+			<div id="infos">
+				<h1>{{work.titre}}</h1>
+				<h2>{{work.description}}</h2>
+				<div class="details">{{work.details|nl2li|raw}}</div>
+			</div>
+			<div class="nav-work">
+				<div class="prev">
+					<a href="{{ path('boodcode_france_work', {'slug':prevSlug}) }}"><img src="{{asset('images/nav_prev.png')}}" alt=""></a>
+				</div>
+				<div class="next">
+					<a href="{{ path('boodcode_france_work', {'slug':nextSlug}) }}"><img src="{{asset('images/nav_next.png')}}" alt=""></a>
+				</div>
+			</div>
+			<ol class="slides">
+			
+			{% for img in image %}
+
+				<li class="{% if loop.first %} current {% endif %}">
+					<div class="tiltview col">{{img.ordre}}
+						<a href="#"><img src="{{ asset( img.webPath) }}" alt="{{ img.alt }}"></a>
+					</div>
+				</li>
+			{% endfor %}
+			
+			</ol>
+			<!--img src="datas/images/bnp-paribas/bnp-paribas-argument-1.jpg" height="600" alt="bnp-paribas magazine argument"-->
+		</div>
+		
+		<div class="clearfix"></div>
+	</div>
+	<script src="{{asset('js/classie.js')}}"></script>
+	<script src="{{asset('js/tiltSlider.js')}}"></script>
+	<script>
+		new TiltSlider( document.getElementById( 'slideshow' ) );
+	</script>
+{% endblock %}

@@ -1,0 +1,3 @@
+services:
+    boodcode_contact.beta.html:
+        class: Boodcode\ContactBundle\Beta\BetaHTML

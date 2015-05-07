@@ -1,0 +1,4 @@
+services:
+#    boodcode_user.example:
+#        class: Boodcode\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

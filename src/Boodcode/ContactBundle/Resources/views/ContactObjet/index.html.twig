@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <h1>ContactObjet list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Mailobjet</th>
+                <th>Mail</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('contactObjet_show', { 'id': entity.id , 'locale':'fr'}) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.mailObjet }}</td>
+                <td>{{ entity.mail }}</td>
+                <td>
+                <div class="btn-group">
+                    <button class="btn btn-default">
+                        <a href="{{ path('contactObjet_show', { 'id': entity.id, 'locale':'fr'}) }}">show</a>
+                    </button>
+                    <button class="btn btn-default">
+                        <a href="{{ path('contactObjet_edit', { 'id': entity.id, 'locale':'fr' }) }}">edit FR</a>
+                    </button>
+                    <button class="btn btn-default">
+                        <a href="{{ path('contactObjet_edit', { 'id': entity.id, 'locale':'en' }) }}">edit EN</a>
+                    </button>
+                </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="btn-group">
+        <button class="btn btn-default">
+            <a href="{{ path('contactObjet_new') }}">
+                Create a new entry
+            </a>
+        </button>
+    </div>
+    {% endblock %}

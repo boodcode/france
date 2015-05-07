@@ -1,0 +1,24 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: '3306'
+    database_name: france_db
+    database_user: francounette
+    database_password: france!Pass2014
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: contact@francoise-aberton.com
+    mailer_password: pf4r_F14
+    #mailer_host: 127.0.0.1
+    #mailer_user: hebert.matthieu@gmail.com
+    #mailer_password: matt%2402704519345
+    locale: fr
+    secret: 62f752a7f3a6fc3735d24b647f3ee43d40c42220
+    debug_toolbar: true
+    debug_redirects: false
+    use_assetic_controller: true
+    app_webmaster: matt@boodcode.com
+    site_root: 'http://www.francoise-aberton.com/'
+    assets_base_url: 'http://www.francoise-aberton.com/web/bundles/boodcodefrance/'
+

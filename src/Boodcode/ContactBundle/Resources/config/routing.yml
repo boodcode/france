@@ -1,0 +1,3 @@
+boodcode_contact_fr:
+    path:    /contact
+    defaults: {_controller: BoodcodeContactBundle:Default:add_contact, _locale: fr }

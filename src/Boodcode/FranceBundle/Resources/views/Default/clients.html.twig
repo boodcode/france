@@ -1,0 +1,18 @@
+{# src/Boodcode/FranceBundle/Resources/views/Default/contact.html.twig #}
+
+{% extends "BoodcodeFranceBundle::layout.html.twig" %}
+
+{% block title %} Clients | {{ parent() }}{% endblock %}
+{% block body %}    
+	<div class="container-fluid">
+		<h2>Clients</h1>
+		<ul class="clients">
+		{% for client in clients %}		
+			<li>
+				<img class="over" src="{{ asset('images/clients/' ~ client ~ '.png') }}" alt="{{client}}">
+				<img src="{{ asset('images/clients-NB/' ~ client ~ '.png') }}" alt="{{client}}">
+			</li>
+		{% endfor %}
+		</ul>
+	</div>
+{% endblock %}

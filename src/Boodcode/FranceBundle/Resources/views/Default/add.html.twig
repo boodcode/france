@@ -1,0 +1,22 @@
+{% extends "BoodcodeFranceBundle::layout.html.twig" %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/admin.css') }}" type="text/css" />
+{% endblock %}
+{% block javascripts %}
+	{{ parent() }}
+
+	<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+{% endblock %}
+{% block body %}
+
+  <h2>Ajouter une entrée</h2>
+
+  {{ include("BoodcodeFranceBundle:Default:form.html.twig") }}
+
+  <p class="alert">
+    Attention : cette entrée sera ajoutée directement
+    sur la page d'accueil après validation du formulaire.
+  </p>
+
+{% endblock %}

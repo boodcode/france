@@ -1,0 +1,38 @@
+parameters:
+#    boodcode_france.example.class: Boodcode\FranceBundle\Example
+
+services:
+#    boodcode_france.example:
+#        class: %boodcode_france.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+
+
+    boodcode_france.twig.boodcode_extension:
+        class: Boodcode\FranceBundle\Twig\BoodcodeExtension
+        tags:
+            - { name: twig.extension }
+
+    boodcode_france.validator.antiflood:
+        class: Boodcode\FranceBundle\Validator\AntifloodValidator
+        arguments: [@request_stack, @doctrine.orm.entity_manager]
+        tags:
+            - { name: validator.constraint_validator, alias:boodcode_france_antiflood }
+
+    boodcode_france.antispam:
+        class: Boodcode\FranceBundle\Antispam\BoodcodeAntispam
+        arguments: [@mailer, 50]
+        calls:
+            - [setLocale, [ %locale% ] ]
+        tags:
+            - { name: twig.extension }
+
+   # boodcode_france.ckeditor:
+   #     class: Boodcode\FranceBundle\Form\Type\CKeditorType
+   #     tags:
+   #         - { name: form.type, alias: ckeditor}
+
+    boodcode_france.beta.html:
+        class: Boodcode\FranceBundle\Beta\betaHTML
+
+

@@ -1,0 +1,33 @@
+{# src/Boodcode/FranceBundle/Resources/views/Default/index.html.twig #}
+
+{% extends "BoodcodeFranceBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} | Contact {% endblock %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link href='http://fonts.googleapis.com/css?family=Raleway:700,500,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
+	<link href='{{ asset("../../bundles/boodcodecontact/css/style.css") }}' rel='stylesheet' type='text/css'>
+{% endblock %}
+{% block body %}    
+	<div class="container-fluid">
+		<div class="row">
+			{% block main %}{% endblock %}
+			{% block footer %}
+				{# include 'BoodcodeContactBundle::footer.html.twig' #}
+			{% endblock %}
+		</div>
+	</div>
+{% endblock %}
+ {% block javascripts %}
+	{{ parent() }}
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script>
+	$('ul li.div_1_2').hover(function(){
+		$(this).children('ul').show();
+	},function(){
+		$(this).children('ul').hide();
+	})
+	</script>
+
+{% endblock javascripts %}

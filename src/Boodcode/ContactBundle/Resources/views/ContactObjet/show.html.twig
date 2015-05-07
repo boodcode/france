@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>ContactObjet</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Mailobjet</th>
+                <td>{{ entity.mailObjet }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ entity.mail }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('contactObjet') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('contactObjet_edit', { 'id': entity.id, 'locale': locale }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

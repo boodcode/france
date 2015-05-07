@@ -1,0 +1,30 @@
+contactObjet:
+    path:     /
+    defaults: { _controller: "BoodcodeContactBundle:ContactObjet:index" }
+
+contactObjet_show:
+    path:     /{id}/{locale}/show
+    defaults: { _controller: "BoodcodeContactBundle:ContactObjet:show" }
+
+contactObjet_new:
+    path:     /new
+    defaults: { _controller: "BoodcodeContactBundle:ContactObjet:new" }
+
+contactObjet_create:
+    path:     /create
+    defaults: { _controller: "BoodcodeContactBundle:ContactObjet:create" }
+    requirements: { _method: post }
+
+contactObjet_edit:
+    path:     /{id}/{locale}/edit
+    defaults: { _controller: "BoodcodeContactBundle:ContactObjet:edit" }
+
+contactObjet_update:
+    path:     /{id}/{locale}/update
+    defaults: { _controller: "BoodcodeContactBundle:ContactObjet:update" }
+    requirements: { _method: post|put }
+
+contactObjet_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BoodcodeContactBundle:ContactObjet:delete" }
+    requirements: { _method: post|delete }

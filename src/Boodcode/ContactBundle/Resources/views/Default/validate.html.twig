@@ -1,0 +1,7 @@
+{# src/Boodcode/ContactBundle/Resources/views/Default/validate.html.twig #}
+<h3>{% trans %}Le formulaire contient les erreurs suivantes{% endtrans %}</h3>
+<ul>
+	{% for error in errors %}
+		<li>{{ error.message|trans }}</li>
+	{% endfor %}
+</ul>

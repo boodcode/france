@@ -1,0 +1,51 @@
+boodcode_france_homepage:
+    path:     /
+    defaults: { _controller: BoodcodeFranceBundle:Default:index }
+
+boodcode_france_admin:
+    path:    /admin
+    defaults: { _controller: BoodcodeFranceBundle:Default:admin}
+
+boodcode_france_add:
+    path:    /add
+    defaults: { _controller: BoodcodeFranceBundle:Default:add }
+
+boodcode_france_delete:
+    path:    /{id}/delete
+    defaults: { _controller: BoodcodeFranceBundle:Default:delete }
+    requirements:
+        id: ([0-9])*
+
+boodcode_france_editer:
+    path:    /{id}/editer
+    defaults: { _controller: BoodcodeFranceBundle:Default:editer }
+    requirements:
+        id: ([0-9])*
+
+boodcode_france_orderingimage:
+    path:    /orderingimage
+    defaults: {_controller: BoodcodeFranceBundle:Default:orderingimage }
+
+boodcode_france_clients:
+    path:    /clients
+    defaults: { _controller: BoodcodeFranceBundle:Default:clients}
+
+boodcode_france_about:
+    path:    /about
+    defaults: { _controller: BoodcodeFranceBundle:Default:about}
+
+boodcode_france_sitemaps:
+    resource: "@BoodcodeFranceBundle/Controller/SitemapsController.php"
+    prefix:   /
+    type:     annotation
+
+
+boodcode_france_work:
+    path:    /{slug}
+    defaults: { _controller: BoodcodeFranceBundle:Default:work }
+    requirements:
+        slug: ([-a-z0-9])*
+
+boodcode_france_translation:
+    path: /traduction/{name}
+    defaults: { _controller: BoodcodeFranceBundle:Work:translation }

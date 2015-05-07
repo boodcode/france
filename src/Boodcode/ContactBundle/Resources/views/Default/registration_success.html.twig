@@ -1,0 +1,19 @@
+{% extends "BoodcodeContactBundle::base.html.twig" %}
+  {% block header %}
+      {{ parent() }}
+  {% endblock %}
+  {% block main %}
+  <div id="main">
+    <h2 class="pageTitle2"> Merci</h2>
+
+      <div class="success">
+        <p>{% trans %}Votre message nous a bien été transmis.<br>Nous vous recontacterons dans les plus brefs délais.{% endtrans %}</p>
+      </div>
+        <div class="clear"></div>
+      
+    </div>
+    <div class="clear"></div>
+  {% endblock %}
+  {% block javascripts %}
+    {{ parent() }}
+  {% endblock javascripts %}

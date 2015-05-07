@@ -1,0 +1,136 @@
+html, body{height:100%;margin:0px;padding:0px;}
+ ::selection {background: transparent; !important;}
+ ::-moz-selection { background: transparent !important;}
+
+.gold{color:#fff}*{margin:0;padding:0}body{background:#222 url(../images/bg.jpg) center top fixed;color:#fff;font-family:'Lato',sans-serif;font-weight: 300;}strong,b{font-family:'Lato';font-weight:400;}h1,h2,h3,h4,h5,h6{font-family:'Lato';color:#c7b29b;font-weight: 300;text-transform: uppercase;text-align: right;}h1{font-weight: 700;font-size:24px;}h2{font-size:20px;font-style: italic;}
+.clearfix{clear:both;display:block;height:0px;}
+
+.container-fluid{width:100%;margin:0 auto;}
+
+#header{height:100px;padding:20px 10px 10px 10px;}
+#header .logo{float:left;margin:0px 20px;}#header .title{float:right;margin:0px 20px;}
+#header .menu{position:relative;color:#c7b29b;}
+#header .menu a{color:#FFFFFF;text-decoration: none;padding:0px 10px;font-size:16px;font-weight:300;}
+
+#main h2, #main h3{text-align: left;}
+
+#footer{height:30px;position:fixed;width:100%;bottom:0px;left:50%;margin-left:-50%;padding:0px 0px 0px 0px;border-top:1px solid #303940;font-size: 10px;font-weight: 400;text-transform: uppercase;
+	color:#9B7853;background:#FFFFFF;}
+#footer a{color:#9B7853;text-decoration:none;}
+#footer .demi.left{width:45%;margin-right: 5%;padding-left:20px;float:left;}
+#footer .demi.right{width:45%;margin-left: 5%;padding-right:20px;float:right;text-align: right;}
+#footer .demi.left li{float:left;padding:0px 20px 0px 0px;line-height: 30px;list-style: none;}
+#footer .demi.right li{float:right;padding:0px 20px 0px 0px;line-height: 30px;list-style: none;}
+.over{position:relative;height: 100%;background: rgba(27,6,6,0.8);opacity:0;transition:all 0.5s;-webkit-transition:all 0.5s;}
+.over:hover{opacity:1;}
+.work .title{width:100%;position:absolute;top:20%;font-weight:400;font-size: 20px;line-height:1em;color:#c7b29b;text-align: center;letter-spacing: 0.05em;}
+.work .subtitle{display:block;width:100%;position:relative;top:-2px;font-size: 10px;font-weight: 300;line-height:1.5em;letter-spacing: 0.15em;text-align: center;transition:all 0.2s;-webkit-transition:all 0.2s;color:#FFFFFF;opacity:0;}
+.work:hover .subtitle{top: 8px;opacity:1;}
+
+
+#main{position: relative;margin:0px 30px;}
+.work-tpl #main{margin:0px 0px;}
+.work{position:relative;text-transform: uppercase;float:left;margin:2px;cursor:pointer;overflow: hidden;}
+.grid {margin: 0;position: absolute;top: 0;left: 0;right: 0;bottom: 0;}
+.grid .bloc{width:25%;height:400px;float:left;margin:0px;}
+
+/**/
+.w1{width:24%;}.w2{width:48.8%;}.w3{width:74%;} .w4{width:98.9%;}
+.h1 {height:76px}.h2{height:156px;}.h3{height:236px;}.h4{height:316px;}
+
+/*.w1 {width:76px}.w2{width:156px;}.w3{width:236px;}.w4{width:316px;}
+.h1 {height:76px}.h2{height:156px;}.h3{height:236px;}.h4{height:316px;}
+*/
+/**/
+#bnp-paribas-cardif 	{background:url(../images/works/bnp-paribas-cardif-home.jpg) center center;background-size: cover;}
+#bnp-paribas-cardif-1 	{background:url(../images/works/bnp-paribas-cardif-1-home.jpg);background-size: cover;}
+#bnp-paribas-camgestion {background:url(../images/works/bnp-paribas-camgestion-home.jpg);background-size: cover;}
+#bnp-paribas-cardif-ce 	{background:url(../images/works/bnp-paribas-cardif-ce-home.jpg);background-size: cover;}
+#novartis 				{background:url(../images/works/novartis-home.jpg);background-size: cover;}
+#candia 				{background:url(../images/works/candia-home.jpg);background-size: cover;}
+#paris-region 			{background:url(../images/works/paris-region-home.jpg)center right;background-size: cover;}
+#noviderm 				{background:url(../images/works/noviderm-home.jpg)center center;background-size: cover;}
+#hediard 				{background:url(../images/works/hediard-home.jpg)center center;background-size: cover;}
+#peugeot 				{background:url(../images/works/peugeot-home.jpg)center center;background-size: cover;}
+#gestrim 				{background:url(../images/works/gestrim-home.jpg)center center;background-size: cover;}
+#partouche 				{background:url(../images/works/partouche-home.jpg)center right;background-size: cover;}
+#camgestion 			{background:url(../images/works/camgestion-home.jpg)center center;background-size: cover;}
+#total 					{background:url(../images/works/total-home.jpg)center center;background-size: cover;}
+#le-plessis-robinson 	{background:url(../images/works/le-plessis-robinson-home.jpg)center center;background-size: cover;}
+#arts 					{background:url(../images/works/arts-home.jpg)center center;background-size: cover;}
+/**/
+/* works .work-tpl*/
+/*---------------*/
+
+/*---------------*/
+/*---------------*/
+canvas {position: absolute;top:0px;}
+#infos {position:absolute;width:40%;padding:130px 40px;}
+#infos h1 {font-size: 30px;font-weight: 400;text-align: left;}
+#infos h2 {font-size: 15px;font-weight: 300;text-align: left;font-style: normal;}
+#infos ul {margin:10px 15px;}
+#infos li {list-style-image: url(../images/puce.svg); font-size:18px;font-weight: 300;}
+#infos li span { font-size:13px;}
+.work-tpl .nav-work {position:absolute; right:10px; width:45px; margin:20px 20px 0px 0px;z-index:1000;}
+.work-tpl .nav-work .prev {position: absolute;left:0px;}
+.work-tpl .nav-work .next {position: absolute;right:0px;}
+
+.clients-tpl h2, .about-tpl h2{margin:0px 0px 20px 0px;}
+.clients-tpl ul.clients{position:relative;}
+.clients-tpl ul.clients li{position:relative;width:150px;height:150px;margin:2px;float:left;list-style: none;}
+.clients-tpl li img{position:absolute;width:100%;}
+.clients-tpl li img.over{opacity:0;transition:all 0.5s;-webkit-transition:all 0.5s;z-index: 1;}
+.clients-tpl li img.over:hover{opacity:1;}
+
+.about-tpl #main{padding-bottom: 50px;}
+.about-tpl h3{font-size: 17px;padding: 0px 0px 4px 0px;margin:50px 0px 10px 0px;clear:both;}
+.about-tpl #main  ul{padding:0px 0px 10px 25px;}
+.about-tpl ul.col_3 {}
+.about-tpl #main li {list-style-image: url(../images/puce.svg); font-size:18px;font-weight: 300;}
+
+.contact_form{font-family: 'Lato',sans-serif;}
+/*---------------*/
+
+@media screen and (max-width: 1390px) {.w2{width:48.7%;}}
+@media screen and (max-width: 1290px) {.w2{width:48.5%;}}
+@media screen and (max-width: 1190px) {.w2{width:48.4%;}}
+@media screen and (max-width: 1090px) {.w2{width:48.2%;}}
+@media screen and (max-width: 960px)  {.w2{width:48.1%;}}
+@media screen and (max-width: 960px)  {
+	.w2{width:48.9%;}
+	.grid .bloc {width: 50%;height: 400px;float: left;margin: 0px;}
+}
+@media screen and (max-width: 790px)  {	.w2{width:48.6%;}}
+@media screen and (max-width: 640px)  {
+	#main{margin:0px 20px;}
+	
+	.w2{width:48.8%;}
+	.grid .bloc {width: 100%;height: 400px;float: left;margin: 0px;}
+}
+
+
+
+@media screen and (max-width: 33.75em) {
+	#main{margin:110px 20px 0px 20px;}
+	.work-tpl #main {margin: 100px 0px;}
+	.w2{width:48.5%;}
+	#header {height:80px;width:95%;position: fixed;top:0px;z-index:100;background:#222 url(../images/bg.jpg) center top fixed;}
+	#header .logo{width:80px;margin:0px 5px;}
+	#header .title{margin: -7px 10px;}
+	#header .title h1{font-size:20px;}
+	#header .logo img{width:100%;}
+	#header .menu{margin:60px 0px 0px 5px !important;}
+	#infos {width:80%;padding:40px 20px 0px 20px;z-index:1;}
+	.slideshow > nav {display: none;}
+}
+
+@media screen and (max-width: 800px) {
+	#header .menu{margin:80px 0px 0px 10px;}
+}
+
+@media screen and (max-width: 320px) {
+	#header {height:55px;position: fixed;top:0px;z-index:100;background:#222 url(../images/bg.jpg) center top fixed;}
+	#header .logo{width:70px;margin:0px 10px;}
+	#header .title h1{font-size:18px;}
+	#header .menu{margin:60px 0px 0px 5px;}
+}

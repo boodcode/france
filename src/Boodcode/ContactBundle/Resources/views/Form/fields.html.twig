@@ -1,0 +1,69 @@
+{% block widget_attributes %}
+    {% spaceless %}
+        {# ADD ERROR START #}
+        {% if errors|length > 0 %}
+            {% set errorClass = 'error' %}
+            {% if attr.class is defined %}
+                {% set errorClass = errorClass ~ ' ' ~ attr.class %}
+            {% endif %}
+            {% set attr = attr|merge({'class': errorClass}) %}
+        {% endif %}
+        {# ADD ERROR END #}
+        id="{{ id }}" name="{{ full_name }}"
+        {%- if read_only %} readonly="readonly"{% endif -%}
+        {%- if disabled %} disabled="disabled"{% endif -%}
+        {%- if required %} required="required"{% endif -%}
+        {%- if max_length %} maxlength="{{ max_length }}"{% endif -%}
+        {%- if pattern %} pattern="{{ pattern }}"{% endif -%}
+        {%- for attrname, attrvalue in attr -%}
+            {{- " " -}}
+            {%- if attrname in ['placeholder', 'title'] -%}
+                {{- attrname }}="{{ attrvalue|trans({}, translation_domain) }}"
+            {%- elseif attrvalue is sameas(true) -%}
+                {{- attrname }}="{{ attrname }}"
+            {%- elseif attrvalue is not sameas(false) -%}
+                {{- attrname }}="{{ attrvalue }}"
+            {%- endif -%}
+        {%- endfor -%}
+    {% endspaceless %}
+{% endblock widget_attributes %}
+
+{% block choice_widget_collapsed -%}
+    {% if required and empty_value is none and not empty_value_in_choices and not multiple -%}
+        {% set required = false %}
+    {%- endif -%}
+
+    <select {{ block('widget_attributes') }} style="display:none;">
+        {% if empty_value is not none -%}
+            <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ empty_value|trans({}, translation_domain) }}</option>
+        {%- endif %}
+    </select>
+    <input  id="{{ id }}"  type="text" readonly="readonly" value="{{ empty_value|trans({}, translation_domain) }}" class="w_470">
+    <ul {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
+        {% if empty_value is not none -%}
+            <li value=""{% if required and value is empty %} class="selected"{% endif %}>{{ empty_value|trans({}, translation_domain) }}</li>
+        {%- endif %}
+        {%- if preferred_choices|length > 0 -%}
+            {% set options = preferred_choices %}
+            {{- block('choice_widget_options') -}}
+            {% if choices|length > 0 and separator is not none -%}
+                <li disabled="disabled">{{ separator }}</li>
+            {%- endif %}
+        {%- endif -%}
+        {% set options = choices -%}
+       {# {{- block('choice_widget_options') -}} #}
+    </ul>
+{%- endblock choice_widget_collapsed %}
+
+{% block choice_widget_options -%}
+    {% for group_label, choice in choices %}
+        {%- if choice is iterable -%}
+            <optgroup label="{{ group_label|trans({}, translation_domain) }}">
+                {% set options = choice %}
+                {{- block('choice_widget_options') -}}
+            </optgroup>
+        {%- else -%}
+            <li value="{{ choice.value }}"{% if choice is selectedchoice(value) %} class="selected"{% endif %}>{{ choice.label|trans({}, translation_domain) }}</li>
+        {%- endif -%}
+    {% endfor %}
+{%- endblock choice_widget_options %}
